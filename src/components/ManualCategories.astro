@@ -1,0 +1,115 @@
+---
+const categories = [
+  {
+    title: "Artículos",
+    description: "Consulta y gestiona productos e inventarios.",
+    articles: [
+      "¿Cómo Añadir Varios Precios a un Artículo?",
+      "Importación Masiva de Artículos al Sistema",
+      "Crear, Editar y Eliminar Artículos en el Sistema",
+      "¿Cómo Imprimir Códigos de Barras?"
+    ],
+    href: "/articulos"
+  },
+  {
+    title: "Ventas",
+    description: "Revisa el historial y detalles de ventas.",
+    articles: [
+      "¿Cómo Exportar una Cotización a PDF?",
+      "¿Cómo Hacer Una Cotización?",
+      "¿Cómo Hacer Una Venta?",
+      "¿Cómo Anular una Venta?"
+    ],
+    href: "/ventas",
+    hasViewMore: true
+  },
+  {
+    title: "Documentos Electrónicos",
+    description: "Almacena y organiza documentos digitales.",
+    articles: [
+      "¿Cómo Emitir Factura/Boleta de una Venta?",
+      "¿Cómo Emitir Factura/Boleta con Fecha Anterior?",
+      "¿Cómo Sacar el Reporte de Ventas de SUNAT (BOLETAS /FACTURAS) en el Sistema?",
+      "¿Cómo Emitir una BOLETA O FACTURA por Varios Pedidos de Venta?"
+    ],
+    href: "/documentos-electronicos"
+  },
+  {
+    title: "Configuración del Sistema",
+    description: "Ajusta parámetros y usuarios del sistema.",
+    articles: [
+      "¿Cómo Crear Vendedores en el Sistema?",
+      "¿Cómo Agregar un Agente Retenedor?",
+      "¿Cómo crear Almacenes / Tiendas / Caja?",
+      "¿Cómo Realizar un Cuadre de Caja?"
+    ],
+    href: "/configuracion"
+  },
+  {
+    title: "Kardex o Inventario",
+    description: "",
+    articles: [
+      "¿Cómo Hacer Ingreso de Mercadería?",
+      "¿Cómo Agregar Salidas?"
+    ],
+    href: "/kardex"
+  },
+  {
+    title: "Manual para Clinicas",
+    description: "",
+    articles: [
+      "1 Maestro Pacientes",
+      "2 Maestro Tratamientos y procesos",
+      "3 Maestro Examenes Laboratorio",
+      "4 Maestro Examenes Ecodoppler"
+    ],
+    href: "/clinicas",
+    hasViewMore: true
+  }
+]
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+      Manual para el Usuario
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {categories.map((category) => (
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <h3 class="text-xl font-bold text-primary mb-2">
+            <a href={category.href} class="hover:underline">
+              {category.title}
+            </a>
+          </h3>
+          {category.description && (
+            <p class="text-gray-600 mb-4">{category.description}</p>
+          )}
+
+          <ul class="space-y-2 mb-4">
+            {category.articles.map((article) => (
+              <li>
+                <a
+                  href={`${category.href}/${article.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}`}
+                  class="text-sm text-gray-700 hover:text-primary hover:underline"
+                >
+                  {article}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {category.hasViewMore && (
+            <a
+              href={category.href}
+              class="text-primary font-medium text-sm hover:underline"
+            >
+              Ver Manuales
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

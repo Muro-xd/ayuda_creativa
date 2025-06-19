@@ -1,0 +1,63 @@
+---
+const searchItems = [
+  {
+    icon: "https://ext.same-assets.com/2133789224/469876773.svg",
+    title: "¿Cómo Hacer Una Venta?",
+    href: "/como-hacer-venta"
+  },
+  {
+    icon: "https://ext.same-assets.com/2133789224/2530125810.svg",
+    title: "¿Cómo Anular una Venta?",
+    href: "/como-anular-venta"
+  },
+  {
+    icon: "https://ext.same-assets.com/2133789224/4099050013.svg",
+    title: "¿Cómo Emitir una Boleta?",
+    href: "/como-emitir-boleta"
+  },
+  {
+    icon: "https://ext.same-assets.com/2133789224/3566663138.svg",
+    title: "¿Cómo Emitir una Factura?",
+    href: "/como-emitir-factura"
+  },
+  {
+    icon: "https://ext.same-assets.com/2133789224/751377261.svg",
+    title: "¿Cómo Hacer Ingresos de Mercadería?",
+    href: "/como-hacer-ingresos"
+  },
+  {
+    icon: "https://ext.same-assets.com/2133789224/384341581.svg",
+    title: "¿Cómo Anular Boletas o Facturas?",
+    href: "/como-anular-documentos"
+  },
+  {
+    icon: "https://ext.same-assets.com/2133789224/2504170106.svg",
+    title: "PRUEBA",
+    href: "/prueba"
+  }
+]
+---
+
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+      Lo más Buscado
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {searchItems.map((item) => (
+        <a
+          href={item.href}
+          class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 hover:shadow-md transition-all group"
+        >
+          <img
+            src={item.icon}
+            alt=""
+            class="w-8 h-8 mr-4 group-hover:scale-110 transition-transform flex-shrink-0"
+          />
+          <span class="text-gray-700 font-medium text-sm">{item.title}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
