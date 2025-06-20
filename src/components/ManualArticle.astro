@@ -1,0 +1,13 @@
+---
+// src/components/ManualArticle.astro
+export interface Props {
+  title: string;
+  content: string;
+}
+const { title, content } = Astro.props;
+---
+
+<article class="prose lg:prose-xl mx-auto py-10 px-4">
+  <h1 class="text-3xl font-bold text-primary mb-4">{title}</h1>
+  <div set:html={content}></div>
+</article>

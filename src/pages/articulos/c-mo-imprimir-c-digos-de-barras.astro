@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "¿Cómo Añadir Varios Precios a un Artículo?";
+const content = `
+    <ul class="pl-6">
+    <li><h3>Paso 1</h3></h1>
+    <p>Seleccionar el artículo que se quiere imprimir los códigos de barra (como se mira en la imagen).</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_24.png"></li><br/>
+
+    <li><h3>Paso 1</h3></h1>
+    <p>Hacer click en el ítem Cod Barras de Artículos.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_25.png"></li><br/>
+    <p>Le aparecerá la siguiente ventana.</p></br>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_26.png"></li><br/>
+
+    <li><h3>Paso 3</h3></h1>
+    <p>Se escribirá el número de códigos de barra a imprimir en el campo Cantidad a Imprimir.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_27.png"></li><br/>
+
+    <li><h3>Paso 4</h3></h1>
+    <p>Luego hacer click en el botón Imprimir.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_28.png"></li><br/>
+    <p>Le aparecerá esta ventana donde se encuentra la vista previa de la impresión.</p></br>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_29.png"></li><br/>
+
+    <li><h3>Paso 5</h3></h1>
+    <p>Seleccionar el ícono impresora (como se ve en la imagen).    </p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_30.png"></li><br/>
+    <p>Le aparecerá la siguiente ventana.</p></br>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_31.png"></li><br/>
+
+    <li><h3>Paso 6</h3></h1>
+    <p>Hacer click en el campo Nombre de la impresora (como se ve en la imagen), Luego, elegir su impresora de código de barras.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_32.png"></li><br/>
+
+    <li><h3>Paso 7</h3></h1>
+    <p>Por último, seleccionar el botón Imprimir.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_33.png"></li><br/>
+
+    <iframe width="720" height="405" src="https://www.youtube.com/embed/ROQzjDydv8M?si=EImQXeXRMGpIhxX6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    
+    
+  </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>

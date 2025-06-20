@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "Importación Masiva de Artículos al Sistema";
+const content = `
+    <ul class="pl-6">
+    <li><h3>Paso 1</h3></h1>
+    <p>Ir al maestro artículos y seleccionar <strong>“Importar Excel”</strong>.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS15-1.png"></li><br/>
+    <li><h3>Paso 2</h3></h1>
+    <p>Seleccionar <strong>“Exportar Plantilla”</strong>.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS16.png"></li><br/>
+    <li><h3>Paso 3</h3></h1>
+    <p>Seleccionar la ruta, el nombre y guardar el archivo.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS17.png"></li><br/>
+    <li><h3>Paso 4</h3></h1>
+    <p>Abrir el archivo descargado, se verá de esta forma.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS18.png"></li><br/>
+    <li><h3>Paso 5</h3></h1>
+    <p>Abrir el archivo descargado. Los campos requeridos son los siguientes:</p>
+    <ul>
+        <li>▪️ID ARTICULO</li>
+        <li>▪️ARTICULOS</li>
+        <li>▪️MONEDA</li>
+        <li>▪️PRECIO DE VENTA (P.V.1) – Completar según el precio de su artículo</li>
+        <li>▪️FACTOR DE CONVERSIÓN (Fact Conv) – Completar según corresponda</li>
+        <li>▪️TIPO DE EXISTENCIA – Por defecto “MERCADERÍAS”</li>
+        <li>▪️UNIDAD DE MEDIDA</li><br/>
+    </ul>
+    <p>Para todos los demás campos, completarlos con “-“.</p><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS19.png"></li><br/>
+    <li><h3>Paso 6</h3></h1>
+    <p>Guardar el Documento.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS20.png"></li><br/>
+    <li><h3>Paso 7</h3></h1>
+    <p>Importamos el Excel al sistema.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS21.png"></li><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS22.png"></li><br/>
+    <li><h3>Paso 8</h3></h1>
+    <p>Guardamos en la base de datos.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS23.png"></li><br/>
+    <li><h3>Paso 9</h3></h1>
+    <p>Damo click en el boton “ACTUALIZAR” para visualizar los articulos importados.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS24.png"></li><br/>  
+  </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>

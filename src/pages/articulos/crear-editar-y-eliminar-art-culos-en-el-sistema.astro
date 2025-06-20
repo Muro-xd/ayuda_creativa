@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "Crear, Editar y Eliminar Artículos en el Sistema";
+const content = `
+    <ul class="pl-6">
+    <iframe width="720" height="405" src="https://www.youtube.com/embed/uYqSRo4exyU?si=pL0qX11G16WyAbIy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br/>
+    <li><h3>1. Ingresamos a Articulos</h3></h1>
+    <p>Ahora ingresamos a <strong>Artículos</strong> para poder agregar productos.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/ARTICULOS1-1536x451.png"></li>
+    <p>Una vez que hagas clic en <strong>Artículos</strong> se abrirá una pantalla con varias opciones: Agregar, Editar, Eliminar y Actualizar.</p>
+    <br/>
+    <li><h3>1.1 Agregar Articulos</h3></h1>
+    <p>Para agregar un nuevo artículo, simplemente haz clic en la opción <strong>Agregar.</strong> Esto abrirá un formulario en el que podrás ingresar toda la información relevante del nuevo producto, como nombre, descripción, precio, stock inicial, entre otros.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS2-1536x835.png"></li><br/>
+    <p>Completa los siguientes campos para registrar un nuevo artículo:</P><br/>
+    <ul>
+        <li>▪️ID_ARTICULO: El id_articulo es el identificador único del artículo y se recomienda utilizar el código del producto</li>
+        <li>▪️ARTICULO: Nombre del artículo.</li>
+        <li>▪️UND MEDIDA: Unidad de medida de venta.</li>
+        <li>▪️UND MEDIDA2: Unidad de medida de compra.</li>
+        <li>▪️FACT CONV: El factor indica cuántas unidades de venta (unidad medida 1) hay en una unidad de compra (unidad medida 2). Ejemplo: Si una caja (unidad medida 2) contiene 12 productos (unidad medida 1), el factor de conversión es 12.</li>
+        <li>▪️PRECIO 1: Precio de venta.</li>
+        <li>▪️UND MEDIDA: Unidad de medida aplicada al precio.</li>
+        <li>▪️FACTOR: Cantidad de unidades por la unidad de medida seleccionada.</li>
+        <li>▪️DESCRIPCIÓN (opcional): Información adicional sobre el artículo.</li><br/>
+    </ul>
+    <p>Una vez ingresados los datos, haz clic en <strong>‘Aceptar’</strong> para guardar el artículo en el inventario.</p><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS3-2.png"></li><br/>
+    <p>Una vez dando en <strong>Aceptar,</strong> se guardará nuestro artículo en el Inventario.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS4-1536x385.png"></li><br/>
+    <li><h3>1.2 Editar Artículos</h3></h1>
+    <p>Para editar un artículo, primero selecciona el producto que deseas modificar. Luego, haz clic en la opción <strong>Editar.</strong> Esto abrirá un formulario con los datos actuales del artículo, donde podrás actualizar la información que necesites.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS5.png"></li><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS3-2.png"></li><br/>
+    <p>Después de realizar los cambios, haz clic en <strong>Aceptar</strong></p><br/>
+    <li><h3>1.3 Eliminar Artículos</h3></h1>
+    <p>Para eliminar un producto del sistema, primero selecciona el artículo que deseas eliminar.<br/> 
+    Luego, haz clic en la opción <strong>Eliminar.</strong> Sin embargo, si el producto ya ha sido registrado y se han realizado compras con 
+    él, no será posible eliminarlo directamente, ya que existen registros asociados a este producto que no se pueden borrar 
+    por razones de integridad de datos.<br/>
+    En lugar de eliminarlo, puedes marcar el producto como <strong>Inactivo.</strong> Esto evitará que el producto sea utilizado en futuras 
+    transacciones, pero mantendrá su historial de compras y registros intactos en el sistema.</p><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS6-1536x504.png"></li><br/>
+    <li><h3>1.4 Marcar Artículos como Inactivo</h3></h1>
+    <p>Para marcar un artículo como inactivo, selecciona el producto que deseas modificar y haz clic en <strong>Editar</strong>.
+    Dentro del formulario, dirígete al apartado <strong>“Otros”</strong>.<br/> 
+    Allí, encontrarás la opción <strong>“Activo”</strong>. Para marcar el artículo como inactivo, cambia el valor de <strong>Activo</strong> a <strong>“NO”</strong>.<br/>
+    Una vez realizado este cambio, asegúrate de guardar los cambios para que se apliquen correctamente y el artículo quede 
+    marcado como inactivo en el sistema.</p><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS7.png"></li><br/>
+    
+    
+  </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>

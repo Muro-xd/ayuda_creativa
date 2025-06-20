@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "¿Cómo Añadir Varios Precios a un Artículo?";
+const content = `
+    <ul class="pl-6">
+    <li><h3>Paso 1</h3></h1>
+    <p>Seleccionar el ítem a modificar y dar Click al botón <strong>“Mod Precio Venta”</strong>.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS8-1536x371.png"></li>
+    <li><p><strong>También se puede buscar el ítem por su ID o su nombre.</strong></p></li><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS9-1536x423.png"></li><br/>
+    <li><h3>Paso 2</h3></h1>
+    <p>En la ventana que se abrirá, dar Click al botón <strong>“Agregar”</strong>.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS10.png"></li><br/>
+    <li><h3>Paso 3</h3></h1>
+    <p>Llenar los siguientes campos con el nuevo precio a agregar.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS11.png"></li><br/>
+    <li><h3>Paso 4</h3></h1>
+    <p>Dar Click al botón <strong>“Actualizar”</strong>.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS12.png"></li><br/>
+    <li><h3>Paso 5</h3></h1>
+    <p>Dar El nuevo precio ya aparecerá en la ventana, dar Click al botón <strong>“Cerrar”</strong>.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS13.png"></li><br/>
+    <p><strong>Al momento de realizar la venta aparecerán ambos precios.</strong>.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/ARTICULOS14.png"></li><br/>
+    
+  </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>

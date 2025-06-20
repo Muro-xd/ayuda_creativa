@@ -1,0 +1,131 @@
+---
+export interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const categories = [
+  {
+    title: "Artículos",
+    href: "/articulos",
+    articles: [
+      "¿Cómo Añadir Varios Precios a un Artículo?",
+      "Importación Masiva de Artículos al Sistema",
+      "Crear, Editar y Eliminar Artículos en el Sistema",
+      "¿Cómo Imprimir Códigos de Barras?"
+    ]
+  },
+  {
+    title: "Ventas",
+    href: "/ventas",
+    articles: [
+      "¿Cómo Exportar una Cotización a PDF?",
+      "¿Cómo Hacer Una Cotización?",
+      "¿Cómo Hacer Una Venta?",
+      "¿Cómo Anular una Venta?",
+      "¿Cómo hacer una venta al crédito?",
+      "¿Cómo Realizar una Venta Con 2 o Más Formas de Pago?",
+      "¿Cómo Anular Documento Relacionado?",
+      "¿Cómo Convertir Cotización en Venta?",
+      "¿Cómo Cambiar la Forma de Pago de una Venta?",
+      "¿Cómo Cambiar Datos del Cliente de una Venta?"
+    ]
+  },
+  {
+    title: "Documentos Electrónicos",
+    href: "/documentos-electronicos",
+    articles: [
+      "¿Cómo Emitir Factura/Boleta de una Venta?",
+      "¿Cómo Emitir Factura/Boleta con Fecha Anterior?",
+      "¿Cómo Sacar el Reporte de Ventas de SUNAT (BOLETAS /FACTURAS) en el Sistema?",
+      "¿Cómo Emitir una BOLETA O FACTURA por Varios Pedidos de Venta?"
+    ]
+  },
+  {
+    title: "Configuración del Sistema",
+    href: "/configuracion",
+    articles: [
+      "¿Cómo Crear Vendedores en el Sistema?",
+      "¿Cómo Agregar un Agente Retenedor?",
+      "¿Cómo crear Almacenes / Tiendas / Caja?",
+      "¿Cómo Realizar un Cuadre de Caja?"
+    ]
+  },
+  {
+    title: "Kardex o Inventario",
+    href: "/kardex",
+    articles: [
+      "¿Cómo Hacer Ingreso de Mercadería?",
+      "¿Cómo Agregar Salidas?"
+    ]
+  },
+  {
+    title: "Manual para Clinicas",
+    href: "/clinicas",
+    articles: [
+      "1 Maestro Pacientes",
+      "2 Maestro Tratamientos y procesos",
+      "3 Maestro Examenes Laboratorio",
+      "4 Maestro Examenes Ecodoppler",
+      "5 Maestro para Citas",
+      "6 Maestro Ubicaciones HC",
+      "7 Paciente Informe y Nuevo PACIENTE",
+      "8 Recepcion  Paciente variz",
+      "9 Consulta",
+      "10 Consulta botones",
+      "11 Ecodoppler",
+      "12 Laboratorio",
+      "13 Enfermeria Tratamientos",
+      "14 HC mov",
+      "15 Citas",
+      "16 Reportes"
+    ]
+  }
+];
+
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+---
+
+<aside class="w-full md:w-1/4 bg-white p-4 border-r border-gray-200 overflow-y-auto max-h-screen sticky top-0">
+  <h2 class="text-xl font-bold mb-4 text-primary">Manual Completo</h2>
+
+  <nav class="space-y-6">
+    {categories.map((category) => (
+      <div>
+        <a
+          href={category.href}
+          class={`text-base font-semibold ${currentPath === category.href ? 'text-primary' : 'text-gray-800 hover:text-primary'}`}
+        >
+          {category.title}
+        </a>
+
+        <ul class="ml-4 mt-2 space-y-1">
+          {category.articles.map((article) => {
+            const articleSlug = slugify(article);
+            const fullHref = `${category.href}/${articleSlug}`;
+            const isActive = currentPath === fullHref;
+
+            return (
+              <li>
+                <a
+                  href={fullHref}
+                  class={`block text-sm px-2 py-1 rounded 
+                    ${isActive ? 'bg-primary text-white font-semibold' : 'text-gray-700 hover:bg-gray-100'}`}
+                >
+                  {article}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))}
+  </nav>
+</aside>
