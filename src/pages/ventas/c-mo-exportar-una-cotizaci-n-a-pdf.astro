@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "¿Cómo Exportar una Cotización a PDF?";
+const content = `
+    <ul class="pl-6">
+    <li><h3>Paso 1</h3></h1>
+    <p>Selecciona el documento a imprimir y haz clic en el botón “Imprimir” y selecciona nuevamente “Imprimir”.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS18-1536x427.png"></li><br/>
+
+    <li><h3>Paso 2</h3></h1>
+    <p>Durante el proceso, el sistema mostrará dos alertas:</p><br/>
+    <ul>
+        <li>▪️¿Desea imprimir cada artículo con imagen?</li>
+        <li>▪️¿Desea imprimir los precios unitarios de los artículos?</li>
+    </ul>
+    <p>El cliente podrá elegir si desea incluir estas opciones en la impresión de la cotización.</p><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS19.png"></li>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS20.png"></li><br/>
+
+    <li><h3>Paso 3</h3></h1>
+    <p>Haz clic en el siguiente botón y selecciona el tipo de archivo a exportar.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS21-2.png"></li><br/>
+
+    <li><h3>Paso 4</h3></h1>
+    <p>En la ventana que aparecerá, haz clic en “Aceptar”.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS22-1.png"></li><br/>
+
+    <li><h3>Paso 5</h3></h1>
+    <p>Selecciona la ubicación y asigna un nombre al archivo para guardarlo.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS23.png"></li><br/>
+
+    <iframe width="720" height="405" src="https://www.youtube.com/embed/J0-PTDCnTS8?si=ZqZ3zGEwr3Ldex-2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+   
+    
+  </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>

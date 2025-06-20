@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+
+const title = "ventas";
+const description = "Revisa el historial y detalles de ventas.";
+
+const ventas = [
+      "▪️¿Cómo Exportar una Cotización a PDF?",
+      "▪️¿Cómo Hacer Una Cotización?",
+      "▪️¿Cómo Hacer Una Venta?",
+      "▪️¿Cómo Anular una Venta?",
+      "▪️¿Cómo hacer una venta al crédito?",
+      "▪️¿Cómo Realizar una Venta Con 2 o Más Formas de Pago?",
+      "▪️¿Cómo Anular Documento Relacionado?",
+      "▪️¿Cómo Convertir Cotización en Venta?",
+      "▪️¿Cómo Cambiar la Forma de Pago de una Venta?",
+      "▪️¿Cómo Cambiar Datos del Cliente de una Venta?"
+];
+
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+    <Header />
+  <div class="flex flex-col md:flex-row max-w-6xl mx-auto">
+    <div class="md:w-3/4 p-4">
+      <h1 class="text-3xl font-bold text-primary mb-4">{title}</h1>
+      <p class="text-gray-600 mb-6">{description}</p>
+
+      <ul class="space-y-4">
+        {ventas.map((ventas) => {
+          const slug = slugify(ventas);
+          return (
+            <li>
+              <a
+                href={`/ventas/${slug}`}
+                class="block text-lg text-gray-800 hover:text-primary font-medium"
+              >
+                {ventas}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+  <Footer />
+  <WhatsAppWidget /> 
+</Layout>

@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+
+const title = "Artículos";
+const description = "Consulta y gestiona productos e inventarios.";
+
+const articles = [
+  "▪️¿Cómo Añadir Varios Precios a un Artículo?",
+  "▪️Importación Masiva de Artículos al Sistema",
+  "▪️Crear, Editar y Eliminar Artículos en el Sistema",
+  "▪️¿Cómo Imprimir Códigos de Barras?"
+];
+
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+    <Header />
+  <div class="flex flex-col md:flex-row max-w-6xl mx-auto">
+    <div class="md:w-3/4 p-4">
+      <h1 class="text-3xl font-bold text-primary mb-4">{title}</h1>
+      <p class="text-gray-600 mb-6">{description}</p>
+
+      <ul class="space-y-4">
+        {articles.map((article) => {
+          const slug = slugify(article);
+          return (
+            <li>
+              <a
+                href={`/articulos/${slug}`}
+                class="block text-lg text-gray-800 hover:text-primary font-medium"
+              >
+                {article}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+  <Footer />
+  <WhatsAppWidget /> 
+</Layout>
