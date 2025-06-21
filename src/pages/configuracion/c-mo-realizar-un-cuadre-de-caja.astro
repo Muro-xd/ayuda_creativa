@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "¿Cómo Realizar un Cuadre de Caja?";
+const content = `
+    <ul class="pl-6">
+        <p>
+        El arqueo de caja es el análisis de las transacciones del efectivo, en un momento determinado, con el objeto de comprobar si se ha contabilizado todo el efectivo recibido y si el saldo que arroja esta cuenta corresponde con lo que se encuentra físicamente en caja en dinero efectivo. Solo presionando el botón CUADRAR Y NUEVA APERTURA, se guarda todos los movimientos (ingresos y egresos)
+        </p><br/>
+        <li><h3>Paso 1</h3></h1>
+        <p>Nos ubicamos en “Principal” luego en “Caja”</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_93.png"></li><br/>
+
+        <li><h3>Paso 2</h3></h1>
+        <p>Presione primero CUADRAR Y NUEVA APERTURA</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_94.png"></li><br/>
+
+        <li><h3>Paso 3</h3></h1>
+        <p>Nos mostrará la imaformación de nuestra caja, verificamos que todo esté conforme y le damos en “Cerrar Caja”</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_95.png"></li><br/>
+
+        <li><h3>Paso 4</h3></h1>
+        <p>Le muestra una ventana para confirmar el proceso, presione el botón SI.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_96.png"></li><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_97.png"></li><br/>
+
+        <li><h3>Paso 5</h3></h1>
+        <p>Para observar la caja, recién CERRADA presionar el ícono como se muestra en la siguiente imagen.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_99.png"></li><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_98.png"></li><br/>
+
+        <p>Le muestra todas los cuadres de caja ya registradas en el sistema.</p><br/>
+        <ul>
+            <li>▪️<strong>(59):</strong> Es el número de movimiento de caja.</li>
+            <li>▪️<strong>(SI/NO): </strong> Indica si la caja está abierta o cerrada. Si está abierta muestra “SI”, y si está cerrada muestra “NO”.</li>
+            <li>▪️<strong>Fecha y hora de apertura de caja:</strong> La fecha y hora en que la caja fue abierta.</li>
+            <li>▪️<strong>Fecha y hora de cierre de caja:</strong> La fecha y hora en que la caja fue cerrada.</li>    
+        </ul>
+
+        
+        </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>
