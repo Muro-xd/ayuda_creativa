@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "¿Cómo Hacer Ingreso de Mercadería?";
+const content = `
+    <ul class="pl-6">
+        <li><h3>Paso 1</h3></h1>
+        <p>En esta ventana se puede agregar entradas, es decir va aumentar el stock de los artículos, le podemos asignar sus números de serie, asignar lotes, abonar nuestras deudas, etc. Para ingresar a COMPRAS – INGRESO DE ARTÍCULOS ir al menú PRINCIPAL, desplegar el ícono ENTRADAS y seleccionar el botón COMPRAS – INGRESO DE ARTÍCULOS.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_38.png"></li><br/>
+        <p>Le va a mostrar la siguiente ventana.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_39-1536x300.png"></li><br/>
+
+        <li><h3>Paso 2</h3></h1>
+        <p>Para agregar entradas de artículos, en la ventana COMPRAS hacer click sobre el botón AGREGAR</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_40.png"></li><br/>
+        <p>Le va a mostrar la siguiente ventana.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_41.png"></li><br/>
+
+        <li><h3>Paso 3</h3></h1>
+        <p>Ingresamos los datos de la factura, boleta u otros</p><br/>
+        <ul>
+            <li>▪️RUC del proveedor</li>
+            <li>▪️Fecha de ingreso de la mercadería</li>
+            <li>▪️Fecha de emisión de la factura, boleta u otros</li>
+            <li>▪️Fecha de vencimiento de la factura, boleta u otros</li> 
+            <li>▪️Día: (en caso de que sea al crédito colocar la cantidad de días de vencimiento)</li>   
+            <li>▪️Moneda (moneda en la que está la factura, boleta u otros)</li>   
+            <li>▪️Estado de la factura (cancelado o pendiente de pago)</li>   
+            <li>▪️Número de serie de la factura, boleta u otros</li>
+            <li>▪️Guía de remisión</li>         
+        </ul><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_43.png"></li><br/>
+
+        <li><h3>Paso 4</h3></h1><br/><br/>
+        <ul>
+            <li>▪️Ingresamos los artículos que se han comprado</li>
+            <li>▪️Cantidad</li>
+            <li>▪️Precio</li>
+            <ul>
+                <li>▪️Costo de compra: es el valor del producto sin IGV</li>
+                <li>▪️Precio: es el valor con IGV</li>      
+            </ul>      
+        </ul><br/>
+        <p>Luego damos click en el boton de “Agregar”</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_44-2.png"></li><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_45-2.png"></li><br/>
+
+        <li><h3>Paso 5</h3></h1>
+        <p>Una vez hecho todos estos paso damos click en el boton de “Grabar”</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_46.png"></li><br/>
+
+        <li><h3>Paso 6</h3></h1>
+        <p>Verificamos que todo esté bien y le damos “Si” a las 2 siguientes ventanas y “Aceptar” a la tercera</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_47.png"></li><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_48.png"></li><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_49.png"></li><br/>
+
+        <iframe width="720" height="405" src="https://www.youtube.com/embed/ZuKvUds8A84?si=Vvp95SE8KjYNHs9V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+ 
+        </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>

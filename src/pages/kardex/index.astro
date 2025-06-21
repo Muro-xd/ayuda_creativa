@@ -5,14 +5,12 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
 
-const title = "Documentos Electrónicos";
-const description = "Almacena y organiza documentos digitales.";
+const title = "Kardex o Inventario";
+const description = "";
 
 const ventas = [
-      "▪️¿Cómo Emitir Factura/Boleta de una Venta?",
-      "▪️¿Cómo Emitir Factura/Boleta con Fecha Anterior?",
-      "▪️¿Cómo Sacar el Reporte de Ventas de SUNAT (BOLETAS /FACTURAS) en el Sistema?",
-      "▪️¿Cómo Emitir una BOLETA O FACTURA por Varios Pedidos de Venta?"
+      "▪️¿Cómo Hacer Ingreso de Mercadería?",
+      "▪️¿Cómo Agregar Salidas?"
 ];
 
 function slugify(text: string) {
@@ -39,7 +37,7 @@ const currentPath = Astro.url.pathname;
           return (
             <li>
               <a
-                href={`/documentos-electronicos/${slug}`}
+                href={`/kardex/${slug}`}
                 class="block text-lg text-gray-800 hover:text-primary font-medium"
               >
                 {ventas}
