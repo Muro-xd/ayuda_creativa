@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+
+const title = "Manual para Clinicas";
+const description = "";
+
+const ventas = [
+      "▪️1 Maestro Pacientes",
+      "▪️2 Maestro Tratamientos y procesos",
+      "▪️3 Maestro Examenes Laboratorio",
+      "▪️4 Maestro Examenes Ecodoppler",
+      "▪️5 Maestro para Citas",
+      "▪️6 Maestro Ubicaciones HC",
+      "▪️7 Paciente Informe y Nuevo PACIENTE",
+      "▪️8 Recepcion  Paciente variz",
+      "▪️9 Consulta",
+      "▪️10 Consulta botones",
+      "▪️11 Ecodoppler",
+      "▪️12 Laboratorio",
+      "▪️13 Enfermeria Tratamientos",
+      "▪️14 HC mov",
+      "▪️15 Citas",
+      "▪️16 Reportes"
+];
+
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+    <Header />
+  <div class="flex flex-col md:flex-row max-w-6xl mx-auto">
+    <div class="md:w-3/4 p-4">
+      <h1 class="text-3xl font-bold text-primary mb-4">{title}</h1>
+      <p class="text-gray-600 mb-6">{description}</p>
+
+      <ul class="space-y-4">
+        {ventas.map((ventas) => {
+          const slug = slugify(ventas);
+          return (
+            <li>
+              <a
+                href={`/clinicas/${slug}`}
+                class="block text-lg text-gray-800 hover:text-primary font-medium"
+              >
+                {ventas}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+  <Footer />
+  <WhatsAppWidget /> 
+</Layout>
