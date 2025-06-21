@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "¿Cómo Emitir una BOLETA O FACTURA por Varios Pedidos de Venta?";
+const content = `
+    <ul class="pl-6">
+        <li><h3>Paso 1</h3></h1>
+        <p>Nos vamos a dirigir a nuestro “MAESTRO DE FACTURAS ELECTRONICAS” o “MAESTRO DE BOLETAS ELECTRONICAS”</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_73.png"></li><br/>
+
+        <li><h3>Paso 2</h3></h1>
+        <p>Agregaremos una nueva Bol./Fact.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_74.png"></li><br/>
+        <p>Nos cargará un formulario para llenar los datos correspondientes</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_75-1536x494.png"></li><br/>
+        <p>Abajo del botón “Guardar”, tendremos un checkbox que nos permitirá acumular o adjuntar mas de un pedido a nuestra Bol./Fact.</p><br/>
+
+        <li><h3>Paso3</h3></h1>
+        <p>Luego podremos importar nuestras ventas:</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_76.png"></li><br/>
+        <p>Seleccionando la opción de importar desde “Pedidos”</p><br/>
+
+        <li><h3>Paso 4</h3></h1>
+        <p>Seleccionamos los pedidos a adjuntar:</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_77.png"></li><br/>
+
+        <li><h3>Paso 5</h3></h1>
+        <p>El sistema actualizará automáticamente los productos y los detalles del pedido.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_78-1536x311.png"></li><br/>
+        
+        <li><h3>Paso 6</h3></h1>
+        <p>En la sección de “Datos del cliente”, verificaremos que la información del cliente esté completada correctamente.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_79-1536x368.png"></li><br/>
+
+        <li><h3>Paso 7</h3></h1>
+        <p>En la sección de “Serie, número y fechas”, revisaremos otros datos, como la fecha de emisión, el método de pago y cualquier otro que necesite ser modificado.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/03/Screenshot_80-1536x216.png"></li><br/>    
+        </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>
