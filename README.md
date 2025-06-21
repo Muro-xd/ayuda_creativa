@@ -1,48 +1,107 @@
-# Astro Starter Kit: Basics
+# 📘 Manual de Usuario – Ayuda Creativa (Astro + Tailwind)
 
-```sh
-npm create astro@latest -- --template basics
-```
+Este proyecto es una documentación interactiva tipo **manual de usuario**, construida con [Astro](https://astro.build) y [Tailwind CSS](https://tailwindcss.com). Permite navegar entre distintas categorías y artículos de ayuda para facilitar el uso de un sistema de gestión.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🚀 Tecnologías utilizadas
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- 🧑‍🚀 Astro  
+- 🎨 Tailwind CSS  
+- 📁 Rutas estáticas basadas en archivos (`/src/pages`)  
+- 🧩 Componentes reutilizables (`Sidebar`, `Layout`, `ManualArticle`)  
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+## 📁 Estructura del proyecto
+````
 /
-├── public/
-│   └── favicon.svg
+├── public/                      → Archivos públicos (favicon, imágenes, etc.)
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── components/              → Sidebar, Header, Footer, ManualArticle, etc.
+│   ├── layouts/                 → Layout base con Header y Footer
+│   └── pages/                   → Categorías y artículos (rutas)
+│       ├── articulos/
+│       │   ├── index.astro
+│       │   └── como-anadir-varios-precios-a-un-articulo.astro
+│       ├── ventas/
+│       │   ├── index.astro
+│       │   └── como-hacer-una-venta.astro
+│       └── ...
+├── tailwind.config.mjs
+├── astro.config.mjs
 └── package.json
-```
+````
+## 🧑‍💻 Instalación local
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+1. Clona el repositorio:
 
-## 🧞 Commands
+   git clone https://github.com/tu-usuario/ayuda-creativa.git  
+   cd ayuda-creativa
 
-All commands are run from the root of the project, from a terminal:
+2. Instala dependencias:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+   npm install
 
-## 👀 Want to learn more?
+3. Ejecuta el proyecto:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+   npm run dev
+
+Abre tu navegador en [http://localhost:4321](http://localhost:4321)
+
+## 🎨 Tailwind CSS
+
+Este proyecto ya viene con **Tailwind CSS totalmente configurado** mediante `@astrojs/tailwind`.
+
+Archivos clave:
+
+- `tailwind.config.mjs`: configuración principal  
+- `src/styles/global.css`: estilos globales (si aplica)  
+- `@tailwindcss/typography`: mejora la apariencia del texto con clases `prose`  
+
+✅ No necesitas instalar Tailwind por separado. Ya está listo para usar.
+
+## 🧪 Comandos disponibles
+
+| Comando            | Acción                                        |
+|--------------------|-----------------------------------------------|
+| `npm run dev`      | Inicia el servidor local                      |
+| `npm run build`    | Genera los archivos de producción en `/dist`  |
+| `npm run preview`  | Previsualiza el sitio generado                |
+| `npm run astro`    | Ejecuta comandos del CLI de Astro             |
+
+## 🌐 Navegación por categorías
+
+Cada categoría del manual tiene su propia ruta:
+
+- `/articulos`  
+- `/ventas`  
+- `/documentos-electronicos`  
+- `/configuracion`  
+- `/kardex`  
+- `/clinicas`  
+
+Cada artículo es accesible con rutas como:
+
+/articulos/como-anadir-varios-precios-a-un-articulo  
+/ventas/como-hacer-una-venta
+
+## 📱 Diseño Responsive
+
+- 🖥️ En escritorio: sidebar fijo con índice completo del manual.  
+- 📱 En móviles: el sidebar se oculta para mejorar la lectura del artículo.  
+  *(Opcional: implementar menú desplegable o modal para navegación)*
+
+## 📝 Agregar un nuevo artículo
+
+1. Agrega el título en el array correspondiente de `Sidebar.astro` y/o `index.astro` dentro de su categoría.  
+2. Crea un archivo `.astro` dentro de `/src/pages/{categoria}/` con el nombre adecuado (slug).  
+3. Usa el componente `<ManualArticle />` pasando `title` y `content`.
+
+## ✅ Pendientes / Ideas de mejora
+
+- [ ] Menú colapsable en mobile (☰ Índice)  
+- [ ] Centralizar categorías/artículos en un archivo `.json` o `.ts`  
+- [ ] Implementar buscador de artículos  
+- [ ] Internacionalización (i18n)
+
+## 🧑‍🚀 Autor
+
+Proyecto desarrollado por [Tu Nombre o Empresa].  
+Licencia: MIT
