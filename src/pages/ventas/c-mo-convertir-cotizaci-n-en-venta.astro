@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "¿Cómo Convertir Cotización en Venta?";
+const content = `
+    <ul class="pl-6">
+        <li><h3>Paso 1</h3></h1>
+        <p>Precionar “F1” en el teclado y hacer click sobre el ícono (como se observa en la siguiente imagen) .</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_20-1.png"></li><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_21.png"></li><br/>
+
+        <li><h3>Paso 2</h3></h1>
+        <p>Le va a mostrar una lista desplegable de todas las cotizaciones agregadas a Creativa, seleccionar la cotización que se quiere importar como se mira a continuación.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_22.png"></li><br/>
+
+        <li><h3>Paso 3</h3></h1>
+        <p>Luego de importar la cotización, le va a mostrar en la VENTA los datos que se agregaron en la cotización como:</p><br/>
+        <ul>
+            <li>▪️Cliente de la Cotización</li>
+            <li>▪️Vendedor que realizó la cotización</li>
+            <li>▪️Los artículos agregados en la cotización</li>
+        </ul>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_23.png"></li><br/>
+
+        <li><h3>Paso 4</h3></h1>
+        <p>Luego de importar la cotización realizamos la venta de la manera tradicional, para ver como hacer una venta 
+        <a href="c-mo-hacer-una-venta">Click aquí</a>
+        </p><br/>
+        <iframe width="720" height="405" src="https://www.youtube.com/embed/SJJFXsZWOro?si=ufZdm_Yz12gfhkzy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+    
+        </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>

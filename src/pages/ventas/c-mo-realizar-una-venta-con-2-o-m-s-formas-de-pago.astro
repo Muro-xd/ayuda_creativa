@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "¿Cómo Realizar una Venta Con 2 o Más Formas de Pago?";
+const content = `
+    <ul class="pl-6">
+        <li><h3>Paso 1</h3></h1>
+        <p>Después de haber guardado la venta y que nos muestre esta ventana, damos clic en el botón de “+”.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_34.png"></li><br/>
+
+        <li><h3>Paso 2</h3></h1>
+        <p>Aquí podemos seleccionar hasta 4 métodos de pago pero en este caso solo colocaremos 2 como se ve en la imagen</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_35.png"></li><br/>
+
+        <li><h3>Paso 3</h3></h1>
+        <p>Dividimos el precio total entre los 2 métodos de pagos seleccionados segun como el cliente quiere pagar, por ejemplo “100 en efectivo y 38.1 en yape”</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_36.png"></li><br/>
+
+        <li><h3>Paso 4</h3></h1>
+        <p>Una vez hecho esto le damos en “Aceptar” y podemos continuar con el proceso de venta</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_37.png"></li><br/>
+
+        <iframe width="720" height="405" src="https://www.youtube.com/embed/nwxd0TMuO24?si=XQyKYaiijEtI_URr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>

@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "¿Cómo Hacer Una Venta?";
+const content = `
+    <ul class="pl-6">
+        <li><h3>Paso 1</h3></h1>
+        <p>Presiona F1 en el teclado para realizar una venta rápida.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/Screenshot_83-1.png"></li><br/>  
+
+        <li><h3>Paso 2</h3></h1>
+        <p>Usa la barra de búsqueda para encontrar el artículo que deseas vender.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/Screenshot_84.png"></li><br/>
+
+        <li><h3>Paso 3</h3></h1>
+        <p>Ingresa la cantidad del producto.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/Screenshot_85.png"></li><br/> 
+
+        <li><h3>Paso 4</h3></h1>
+        <p>Si la venta supera los 700 soles, ingresa los datos del cliente:</p><br/>
+        <ul>
+            <li>▪️Presiona F2.</li>
+            <li>▪️Busca al cliente si ya tiene un registro o, si es nuevo, ingresa su DNI o RUC en “Id Tercero” y presiona Enter para que el sistema complete sus datos.</li>
+        </ul>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/Screenshot_86.png"></li>
+
+        <li><h3>Paso 5</h3></h1>
+        <p>Haz clic en el botón de guardar</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/Screenshot_87.png"></li><br/> 
+
+        <li><h3>Paso 6</h3></h1>
+        <p>En formas de pago, selecciona cómo el cliente pagará y haz clic en Aceptar.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/Screenshot_88.png"></li><br/> 
+
+        <li><h3>Paso 7</h3></h1>
+        <p>Si deseas emitir un comprobante, elige entre “Emitir Nueva Factura” o “Emitir Nueva Boleta”. Si no, simplemente haz clic en “Imprimir Pedido Generado” o “Salir”.</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/Screenshot_89.png"></li><br/> 
+
+        <iframe width="720" height="405" src="https://www.youtube.com/embed/IhwuomRdDN0?si=Vr8mIH89VXJlf7eI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+     </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>

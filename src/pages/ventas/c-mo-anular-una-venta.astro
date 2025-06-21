@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "¿Cómo Anular una Venta?";
+const content = `
+    <ul class="pl-6">
+    <li><h3>Paso 1</h3></h1>
+    <p>Después de haber realizado una venta, ahora procederemos a anularla. En la pantalla, podrás ver la venta previamente realizada. Haz clic en “Anular” para continuar con el proceso.</p><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS24-1536x295.png"></li><br/>
+    
+    <li><h3>Paso 2</h3></h1>
+        <p>Nos aparecerán dos métodos de anulación:</p><br/>
+        <ul>
+            <li>▪️<strong>Anular Venta Completa:</strong> Se anulará el pedido y su documento relacionado si es que lo tuviese, ya sea por nota de crédito o dada de baja (dentro de los 7 días). Se anulará la salida y generará un egreso de caja si existen registros vinculados.</li>
+            </ul>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS25.png"></li><br/>
+
+    <li><h3>Paso 3</h3></h1>
+    <p>Cuando selecciones la opción de “Anular Venta Completa”, aparecerá un cuadro de confirmación para asegurarte de que deseas proceder con la acción. En este cuadro, podrás confirmar tu decisión haciendo clic en el botón “Aceptar”.</p><br/>
+    <p><strong>Nota:</strong> Esta acción anulará completamente la venta, y los cambios no podrán deshacerse una vez confirmados.</p><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS26.png"></li><br/>
+
+    <li><h3>Paso 4</h3></h1>
+    <p>A continuación, se te pedirá que ingreses la contraseña de administrador para continuar con el proceso. La contraseña predeterminada es “admin”.</p><br/>
+    <p>Opcionalmente, podrás ingresar un motivo para la anulación de la venta, lo cual es recomendable para llevar un registro claro de la razón detrás de la acción.</p><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS27.png"></li><br/>
+
+    <li><h3>Paso 5</h3></h1>
+    <p>En esta sección, puedes elegir entre “Guardar y generar el egreso de caja” o “Cancelar y no realizar ningún egreso de caja”.</p><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS28.png"></li><br/>
+
+    <iframe width="720" height="405" src="https://www.youtube.com/embed/f6_EVeXQlm8?si=y0iSgq5ORMfB-oAA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+   
+    
+  </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>

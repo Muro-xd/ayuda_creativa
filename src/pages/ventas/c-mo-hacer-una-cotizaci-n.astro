@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "¿Cómo Hacer Una Cotización?";
+const content = `
+    <ul class="pl-6">
+    <li><h3>Paso 1</h3></h1>
+    <p>Primero, dirígete al apartado de “VENTAS” en el menú principal.</p><br/>
+    <p>Luego, selecciona el apartado de “COTIZACIONES”.</p>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS13.png"></li><br/>  
+
+    <li><h3>Paso 2</h3></h1>
+    <p>Haz clic en el botón de “AGREGAR” para comenzar con la creación de la cotización.</p><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS14-1536x271.png"></li><br/> 
+    
+    <li><h3>Paso 3</h3></h1>
+    <p>Selecciona los artículos que deseas incluir en la cotización. Puedes agregar varios productos según sea necesario.</p><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS15-1536x856.png"></li><br/>
+
+    <li><h3>Paso 4</h3></h1>
+    <p>En el campo de “ID TERCERO”, ingresa el número de documento correspondiente al cliente. En el campo “TIPO”, selecciona el tipo de documento que deseas utilizar para la cotización.</p><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS16.png"></li><br/>
+
+     <li><h3>Paso 5</h3></h1>
+    <p>Finalmente, haz clic en “GUARDAR” para completar el proceso de cotización.</p><br/>
+    <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2022/05/VENTAS17.png"></li><br/>
+
+    <iframe width="720" height="405" src="https://www.youtube.com/embed/oUcTAE1mTWo?si=HmZiH3oJ94jwOGjz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    
+  </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>

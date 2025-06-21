@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ManualArticle from '../../components/ManualArticle.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppWidget from '../../components/WhatsAppWidget.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const title = "¿Cómo Cambiar la Forma de Pago de una Venta?";
+const content = `
+    <ul class="pl-6">
+        <li><h3>Paso 1</h3></h1>
+        <p>Seleccionamos la venta que queremos editar</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_7-1.png"></li><br/>
+
+        <li><h3>Paso 2</h3></h1>
+        <p>Nos dirijimos a “Adicionales” y “Cambiar Tip.Pago o Cliente”</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_8-1.png"></li><br/>
+
+        <li><h3>Paso 3</h3></h1>
+        <p>Le damos en “Click en cambiar forma de pago”</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_14.png"></li><br/>
+
+        <li><h3>Paso 4</h3></h1>
+        <p>Seleccionamos la forma de pago, podemos seleccionar hasta 4 formas de pago</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_16.png"></li><br/>
+
+        <li><h3>Paso 5</h3></h1>
+        <p>Damos Click en el boton “GUARDAR”</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_17-1.png"></li><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_18.png"></li><br/>
+
+        <li><h3>Paso 6</h3></h1>
+        <p>Salimos y verificamos que el método de pago se haya actualizado</p><br/>
+        <li><img src="https://ayuda.creativa.com.pe/wp-content/uploads/2025/02/Screenshot_19.png"></li><br/>
+
+        <iframe width="720" height="405" src="https://www.youtube.com/embed/ZlfnaSl4ke8?si=4x1O_mUXMcCWe7m8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+        
+
+    
+        </ul>
+
+  
+`;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+    <Sidebar currentPath={currentPath} />
+      <div class="md:w-3/4 p-4">
+      <ManualArticle title={title} content={content} />
+    </div>
+  </div>
+
+  <Footer />
+  <WhatsAppWidget />  
+</Layout>
